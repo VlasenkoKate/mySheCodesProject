@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+.container {
+  width: 500px;
+  height: 600px;
+  margin: 70px auto;
+}
+
+form {
+  margin: 30px 50px 0px 10px;
+}
+.row {
+  margin-left: 6px;
+}
+
+.btn-primary {
+  color: white;
+}
+
+.chosen_city {
+  margin: 50px 0px 50px 10px;
+}
+
+.data {
+  color: grey;
+  font-size: smaller;
+}
+
+.chosen_city_name {
+  font-size: 36px;
+  margin-bottom: 0;
+  color: #016fc5;
+}
+.currently_temp {
+  font-size: 45px;
+  color: grey;
+  padding: 15px 10px 0px 10px;
+  font-weight: lighter;
+}
+
+.weather_container {
+  margin: 0px 7px 60px 0px;
+}
+
+.currently_weather {
+  color: #016fc5;
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+.weather_info {
+  padding: 15px 0px 0px 0px;
+}
+
+.weather_detail {
+  font-size: 14px;
+  font-weight: lighter;
+  color: grey;
+}
+
+.future_weater {
+  margin-right: 14px;
+}
+
+.col {
+  text-align: center;
+}
+
+.day {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.future_temp {
+  color: grey;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.tempchange {
+  font-size: 12px;
+  text-align: left;
+  text-decoration: none;
+}
