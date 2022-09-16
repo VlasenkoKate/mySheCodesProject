@@ -1,5 +1,10 @@
 let dataField = document.querySelector("#currentData");
 let currentData = new Date();
+let currentHours = currentData.getHours();
+currentHours = ("0" + currentHours).slice(-2);
+let currentMinutes = currentData.getMinutes();
+currentMinutes = ("0" + currentMinutes).slice(-2);
+
 let weekDays = [
   "Sunday",
   "Monday",
@@ -10,7 +15,7 @@ let weekDays = [
   "Saturday",
 ];
 let dayOfTheWeek = weekDays[currentData.getDay()];
-dataField.innerHTML = `${dayOfTheWeek} ${currentData.getHours()}:${currentData.getMinutes()}`;
+dataField.innerHTML = `${dayOfTheWeek} ${currentHours}:${currentMinutes}`;
 
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", showCity);
