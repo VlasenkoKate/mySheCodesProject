@@ -13,77 +13,83 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div
-      class="container border border-primary shadow p-3 mb-5 bg-white rounded"
-    >
-      <form id="city-form">
-        <div class="input-group mb-1">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Enter a city"
-            aria-label="Enter a city"
-            aria-describedby="button-addon2"
-            id="input-city-value"
-          />
-          <button
-            class="btn btn-outline-secondary btn-primary"
-            type="submit"
-            id="button-addon2"
-          >
-            Search
-          </button>
-        </div>
-      </form>
-      <div class="row">
-        <a href="" class="col-2">Kyiv</a>
-        <a href="" class="col-2">Wien</a>
-        <a href="" class="col-2">Rome</a>
-      </div>
-      <div class="chosen_city">
-        <span class="chosen_city_name" id="chosen-city">Kharkiv</span>
-        <p class="data" id="currentData">Sunday, 29 May</p>
-      </div>
-      <div class="row weather_container">
-        <div class="col-4 currently_temp">
-          <div class="tempchange">
-            <a href="" class="tempchange" id="celsius-temp">°С</a> /
-            <a href="" class="tempchange" id="fahrenheit-temp">°F</a>
+    <div class="container">
+      <div class="border border-primary shadow p-3 mb-5 bg-white rounded">
+        <form id="city-form">
+          <div class="input-group mb-1">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter a city"
+              aria-label="Enter a city"
+              aria-describedby="button-addon2"
+              id="input-city-value"
+            />
+            <button
+              class="btn btn-outline-secondary btn-primary"
+              type="submit"
+              id="button-addon2"
+            >
+              Search
+            </button>
           </div>
-          <span id="current-temp">22</span>
-          <span id="current-degree-type">°С</span>
+        </form>
+        <div class="row">
+          <a href="" class="col-2">Kyiv</a>
+          <a href="" class="col-2">Wien</a>
+          <a href="" class="col-2">Rome</a>
         </div>
-        <div class="col-4"><img src="img/raining (1).png" width="100" /></div>
-        <div class="col-4 weather_info">
-          <h1 class="currently_weather">Rainy</h1>
-          <p class="weather_detail">
-            Precipitation: 70% <br />
-            Wind: 9km/h
-          </p>
+        <div class="chosen_city">
+          <span class="chosen_city_name" id="chosen-city">Kharkiv</span>
+          <p class="data" id="currentData">Sunday, 29 May</p>
+        </div>
+        <div class="row weather_container">
+          <div class="col-4 currently_temp">
+            <div class="tempchange">
+              <a href="" class="tempchange" id="celsius-temp">°С</a> /
+              <a href="" class="tempchange" id="fahrenheit-temp">°F</a>
+            </div>
+            <span id="current-temp">22</span>
+            <span id="current-degree-type">°С</span>
+          </div>
+          <div class="col-4"><img src="img/raining (1).png" width="100" /></div>
+          <div class="col-4 weather_info">
+            <h1 class="currently_weather">Rainy</h1>
+            <p class="weather_detail">
+              Precipitation: 70% <br />
+              Wind: 9km/h
+            </p>
+          </div>
+        </div>
+        <div class="future_weater">
+          <div class="row">
+            <div class="col day">Mon</div>
+            <div class="col day">Tue</div>
+            <div class="col day">Wed</div>
+            <div class="col day">Thu</div>
+            <div class="col day">Fri</div>
+          </div>
+          <div class="row">
+            <div class="col"><img src="img/sun.png" width="40px" /></div>
+            <div class="col"><img src="img/sun.png" width="40px" /></div>
+            <div class="col"><img src="img/cloudy.png" width="40px" /></div>
+            <div class="col"><img src="img/sun.png" width="40px" /></div>
+            <div class="col"><img src="img/rain.png" width="40px" /></div>
+          </div>
+          <div class="row">
+            <div class="col future_temp">22°С</div>
+            <div class="col future_temp">21°С</div>
+            <div class="col future_temp">20°С</div>
+            <div class="col future_temp">22°С</div>
+            <div class="col future_temp">16°С</div>
+          </div>
         </div>
       </div>
-      <div class="future_weater">
-        <div class="row">
-          <div class="col day">Mon</div>
-          <div class="col day">Tue</div>
-          <div class="col day">Wed</div>
-          <div class="col day">Thu</div>
-          <div class="col day">Fri</div>
-        </div>
-        <div class="row">
-          <div class="col"><img src="img/sun.png" width="40px" /></div>
-          <div class="col"><img src="img/sun.png" width="40px" /></div>
-          <div class="col"><img src="img/cloudy.png" width="40px" /></div>
-          <div class="col"><img src="img/sun.png" width="40px" /></div>
-          <div class="col"><img src="img/rain.png" width="40px" /></div>
-        </div>
-        <div class="row">
-          <div class="col future_temp">22°С</div>
-          <div class="col future_temp">21°С</div>
-          <div class="col future_temp">20°С</div>
-          <div class="col future_temp">22°С</div>
-          <div class="col future_temp">16°С</div>
-        </div>
+      <div>
+        <a href="https://github.com/VlasenkoKate/mySheCodesProject">
+          Open-sourse code
+        </a>
+        by Vlasenko Kateryna
       </div>
     </div>
     <script src="src/js.js"></script>
