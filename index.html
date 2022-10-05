@@ -10,6 +10,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -32,16 +33,18 @@
             >
               Search
             </button>
+            <button
+              class="btn btn-outline-secondary btn-primary current"
+              type="submit"
+              id="button-addon2"
+            >
+              Current
+            </button>
           </div>
         </form>
-        <div class="row">
-          <a href="" class="col-2">Kyiv</a>
-          <a href="" class="col-2">Wien</a>
-          <a href="" class="col-2">Rome</a>
-        </div>
         <div class="chosen_city">
-          <span class="chosen_city_name" id="chosen-city">Kharkiv</span>
-          <p class="data" id="currentData">Sunday, 29 May</p>
+          <span class="chosen_city_name" id="chosen-city"></span>
+          <p class="data" id="currentData"></p>
         </div>
         <div class="row weather_container">
           <div class="col-4 currently_temp">
@@ -49,15 +52,17 @@
               <a href="" class="tempchange" id="celsius-temp">°С</a> /
               <a href="" class="tempchange" id="fahrenheit-temp">°F</a>
             </div>
-            <span id="current-temp">22</span>
+            <span id="current-temp">-</span>
             <span id="current-degree-type">°С</span>
           </div>
-          <div class="col-4"><img src="img/raining (1).png" width="100" /></div>
+          <div class="col-4 weather_icon">
+            <img src="" />
+          </div>
           <div class="col-4 weather_info">
-            <h1 class="currently_weather">Rainy</h1>
+            <h1 class="currently_weather"></h1>
             <p class="weather_detail">
-              Precipitation: 70% <br />
-              Wind: 9km/h
+              <span class="weather_humidity_detail">Humidity: </span> <br />
+              <span class="weather_wind_detail">Wind:</span>
             </p>
           </div>
         </div>

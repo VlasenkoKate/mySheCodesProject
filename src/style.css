@@ -20,6 +20,10 @@ form {
   color: white;
 }
 
+.current {
+  background-color: blueviolet;
+}
+
 .chosen_city {
   margin: 50px 0px 50px 10px;
 }
