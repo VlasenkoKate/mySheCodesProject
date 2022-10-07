@@ -30,7 +30,7 @@ let currentTemp = document.getElementById("current-temp");
 let weatherDiscription = document.querySelector(".currently_weather");
 let weatherHumidityDetails = document.querySelector(".weather_humidity_detail");
 let weatherWindDetails = document.querySelector(".weather_wind_detail");
-let weatherIcon = document.querySelector(".weather_icon");
+let weatherIcon = document.querySelector("#weather_icon");
 let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
 let unit = "metric";
 
@@ -54,9 +54,10 @@ function showCurrentWeather(response) {
   weatherDiscription.innerHTML = response.data.weather[0].main;
   weatherHumidityDetails.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   weatherWindDetails.innerHTML = `Wind: ${response.data.wind.speed} m/s`;
+  console.log(response.data.weather[0].icon);
   weatherIcon.setAttribute(
     "src",
-    `<img src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png">`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 
