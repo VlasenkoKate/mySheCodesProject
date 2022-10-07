@@ -33,6 +33,7 @@ let weatherWindDetails = document.querySelector(".weather_wind_detail");
 let weatherIcon = document.querySelector("#weather_icon");
 let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
 let unit = "metric";
+let celsiusTemp = null;
 
 let basicUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric&appid=${apiKey}`;
 axios.get(basicUrl).then(showCurrentWeather);
@@ -49,8 +50,10 @@ function retrieveCurrentCity(position) {
 }
 
 function showCurrentWeather(response) {
-  currentTemp.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = celsiusTemp;
   chosenCity.innerHTML = response.data.name;
+  currentDegreeType.innerHTML = "°C";
   weatherDiscription.innerHTML = response.data.weather[0].main;
   weatherHumidityDetails.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   weatherWindDetails.innerHTML = `Wind: ${response.data.wind.speed} m/s`;
@@ -73,29 +76,47 @@ let currentDegreeType = document.querySelector("#current-degree-type");
 
 celsiusDegree.addEventListener("click", changeToCelsius);
 fahrenheitDegree.addEventListener("click", changeToFahrenheit);
-let clickedF = false;
-let clickedC = false;
 
 function changeToFahrenheit(event) {
   event.preventDefault();
-  if (!clickedF) {
-    clickedF = true;
-    clickedC = false;
-    let tempCelsius = currentTemp.textContent;
-    tempFahrenheit = Math.round(tempCelsius * 1.8 + 32);
-    currentTemp.innerHTML = tempFahrenheit;
-    currentDegreeType.innerHTML = "°F";
-  }
+  let tempFahrenheit = Math.round(celsiusTemp * 1.8 + 32);
+  currentTemp.innerHTML = tempFahrenheit;
+  currentDegreeType.innerHTML = "°F";
+  celsiusDegree.classList.remove("active");
+  fahrenheitDegree.classList.add("active");
 }
 
 function changeToCelsius(event) {
   event.preventDefault();
-  if (!clickedC) {
-    clickedC = true;
-    clickedF = false;
-    let tempFahrenheit = currentTemp.textContent;
-    tempCelsius = Math.round((tempFahrenheit - 32) / 1.8);
-    currentTemp.innerHTML = tempCelsius;
-    currentDegreeType.innerHTML = "°C";
-  }
+  currentTemp.innerHTML = celsiusTemp;
+  currentDegreeType.innerHTML = "°C";
+  celsiusDegree.classList.add("active");
+  fahrenheitDegree.classList.remove("active");
 }
+
+// let clickedF = false;
+// let clickedC = false;
+
+// function changeToFahrenheit(event) {
+//   event.preventDefault();
+//   if (!clickedF) {
+//     clickedF = true;
+//     clickedC = false;
+//     let tempCelsius = currentTemp.textContent;
+//     tempFahrenheit = Math.round(tempCelsius * 1.8 + 32);
+//     currentTemp.innerHTML = tempFahrenheit;
+//     currentDegreeType.innerHTML = "°F";
+//   }
+// }
+
+// function changeToCelsius(event) {
+//   event.preventDefault();
+//   if (!clickedC) {
+//     clickedC = true;
+//     clickedF = false;
+//     let tempFahrenheit = currentTemp.textContent;
+//     tempCelsius = Math.round((tempFahrenheit - 32) / 1.8);
+//     currentTemp.innerHTML = tempCelsius;
+//     currentDegreeType.innerHTML = "°C";
+//   }
+// }

@@ -89,3 +89,12 @@ form {
   text-align: left;
   text-decoration: none;
 }
+
+.weather_container .active {
+  color: black;
+}
+
+.weather_container .active:hover {
+  text-decoration: none;
+  cursor: default;
+}
