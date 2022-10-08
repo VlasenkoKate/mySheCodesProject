@@ -19,7 +19,6 @@ dataField.innerHTML = `${dayOfTheWeek} ${currentHours}:${currentMinutes}`;
 
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", showCity);
-
 let choseCurrentPosition = document.querySelector(".current");
 choseCurrentPosition.addEventListener("click", getCurrentCity);
 let chosenCity = document.querySelector("#chosen-city");
@@ -34,6 +33,27 @@ let weatherIcon = document.querySelector("#weather_icon");
 let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
 let unit = "metric";
 let celsiusTemp = null;
+
+function showForecast() {
+  let forecastElement = document.querySelector(".weather_forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 weather_forecast_date">
+      ${day}
+      <img class="weather_forecast_icon" src="img/sun.png" width="40px" />
+      <div class="col weather_forecast_temp">
+        <span class="weather_forecast_temp_max">22° </span>
+        <span class="weather_forecast_temp_min">18° </span>
+      </div>
+    </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  console.log(forecastHTML);
+  forecastElement.innerHTML = forecastHTML;
+}
 
 let basicUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric&appid=${apiKey}`;
 axios.get(basicUrl).then(showCurrentWeather);
@@ -51,6 +71,7 @@ function retrieveCurrentCity(position) {
 
 function showCurrentWeather(response) {
   celsiusTemp = Math.round(response.data.main.temp);
+  showForecast();
   currentTemp.innerHTML = celsiusTemp;
   chosenCity.innerHTML = response.data.name;
   currentDegreeType.innerHTML = "°C";
