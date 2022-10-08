@@ -110,7 +110,6 @@ function formatDay(dt) {
 
 function showForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
   let forecastElement = document.querySelector(".weather_forecast");
   let forecastHTML = `<div class="row forecast">`;
 
