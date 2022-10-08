@@ -57,7 +57,6 @@ function showCurrentWeather(response) {
   weatherDiscription.innerHTML = response.data.weather[0].main;
   weatherHumidityDetails.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   weatherWindDetails.innerHTML = `Wind: ${response.data.wind.speed} m/s`;
-  console.log(response.data.weather[0].icon);
   weatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

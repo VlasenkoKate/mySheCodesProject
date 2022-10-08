@@ -12,6 +12,7 @@
 form {
   margin: 30px 50px 0px 10px;
 }
+
 .row {
   margin-left: 6px;
 }
@@ -41,12 +42,12 @@ form {
 .currently_temp {
   font-size: 45px;
   color: grey;
-  padding: 15px 10px 0px 10px;
+  padding: 10px 10px 0px 10px;
   font-weight: lighter;
 }
 
 .weather_container {
-  margin: 0px 7px 60px 0px;
+  margin: 0px 7px 20px 0px;
 }
 
 .currently_weather {
@@ -65,23 +66,24 @@ form {
   color: grey;
 }
 
-.future_weater {
-  margin-right: 14px;
-}
-
 .col {
   text-align: center;
 }
 
-.day {
-  padding-bottom: 10px;
+.weather_forecast {
+  text-align: center;
+}
+
+.weather_forecast_date {
   font-size: 14px;
 }
 
-.future_temp {
-  color: grey;
-  font-size: 14px;
+.weather_forecast_temp {
+  color: black;
+  font-size: 12px;
   padding-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .tempchange {
@@ -97,4 +99,14 @@ form {
 .weather_container .active:hover {
   text-decoration: none;
   cursor: default;
+}
+
+.weather_forecast_temp_min {
+  color: grey;
+  padding-left: 5px;
+}
+
+.weather_forecast_icon {
+  width: 42px;
+  margin: 7px 0px 5px 0px;
 }
