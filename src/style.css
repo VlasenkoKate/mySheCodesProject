@@ -39,10 +39,11 @@ form {
   margin-bottom: 0;
   color: #016fc5;
 }
+
 .currently_temp {
   font-size: 45px;
   color: grey;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 7px 0px 10px;
   font-weight: lighter;
 }
 
@@ -70,6 +71,9 @@ form {
   text-align: center;
 }
 
+.row {
+  text-align: center;
+}
 .weather_forecast {
   text-align: center;
 }
@@ -109,4 +113,9 @@ form {
 .weather_forecast_icon {
   width: 42px;
   margin: 7px 0px 5px 0px;
+}
+
+.forecast {
+  justify-content: space-between;
+  margin: 0 7px 0 7px;
 }

@@ -34,27 +34,6 @@ let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
 let unit = "metric";
 let celsiusTemp = null;
 
-function showForecast() {
-  let forecastElement = document.querySelector(".weather_forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 weather_forecast_date">
-      ${day}
-      <img class="weather_forecast_icon" src="img/sun.png" width="40px" />
-      <div class="col weather_forecast_temp">
-        <span class="weather_forecast_temp_max">22° </span>
-        <span class="weather_forecast_temp_min">18° </span>
-      </div>
-    </div>`;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  console.log(forecastHTML);
-  forecastElement.innerHTML = forecastHTML;
-}
-
 let basicUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric&appid=${apiKey}`;
 axios.get(basicUrl).then(showCurrentWeather);
 
@@ -71,17 +50,19 @@ function retrieveCurrentCity(position) {
 
 function showCurrentWeather(response) {
   celsiusTemp = Math.round(response.data.main.temp);
-  showForecast();
   currentTemp.innerHTML = celsiusTemp;
   chosenCity.innerHTML = response.data.name;
   currentDegreeType.innerHTML = "°C";
   weatherDiscription.innerHTML = response.data.weather[0].main;
   weatherHumidityDetails.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  weatherWindDetails.innerHTML = `Wind: ${response.data.wind.speed} m/s`;
+  weatherWindDetails.innerHTML = `Wind: ${Math.round(
+    response.data.wind.speed
+  )} m/s`;
   weatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  getForecast(response.data.coord);
 }
 
 function showCity(event) {
@@ -112,6 +93,49 @@ function changeToCelsius(event) {
   currentDegreeType.innerHTML = "°C";
   celsiusDegree.classList.add("active");
   fahrenheitDegree.classList.remove("active");
+}
+
+function getForecast(coords) {
+  apiKey = "6981613e43793d88e433ec9eeaad3dae";
+  let urlForecast = `https://api.openweathermap.org/data/3.0/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=metric`;
+  axios.get(urlForecast).then(showForecast);
+}
+
+function formatDay(dt) {
+  let date = new Date(dt * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = date.getDay();
+  return days[day];
+}
+
+function showForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
+  let forecastElement = document.querySelector(".weather_forecast");
+  let forecastHTML = `<div class="row forecast">`;
+
+  forecast.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 weather_forecast_date">
+      ${formatDay(day.dt)}
+      <img class="weather_forecast_icon" src="http://openweathermap.org/img/wn/${
+        day.weather[0].icon
+      }@2x.png" width="40px" />
+      <div class="col weather_forecast_temp">
+        <span class="weather_forecast_temp_max">${Math.round(
+          day.temp.max
+        )}° </span>
+        <span class="weather_forecast_temp_min">${Math.round(
+          day.temp.min
+        )}° </span>
+      </div>
+    </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 // let clickedF = false;
