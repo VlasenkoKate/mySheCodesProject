@@ -27,6 +27,7 @@ form {
 
 .chosen_city {
   margin: 50px 0px 50px 10px;
+  padding-left: 10px;
 }
 
 .data {
@@ -43,7 +44,7 @@ form {
 .currently_temp {
   font-size: 45px;
   color: grey;
-  padding: 10px 7px 0px 10px;
+  padding: 10px 10px 0px 10px;
   font-weight: lighter;
 }
 
@@ -94,6 +95,7 @@ form {
   font-size: 12px;
   text-align: left;
   text-decoration: none;
+  padding-left: 5px;
 }
 
 .weather_container .active {
